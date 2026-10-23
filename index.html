@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đinh Duy Tuân | Content Marketing & SEO Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            biliBg: '#F6F7F8',
+            biliPink: '#FB7299',
+            biliBlue: '#00AEEC',
+            biliDark: '#18191C',
+            biliGray: '#61666D'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #F6F7F8; color: #18191C; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .bili-card { background: #FFFFFF; border-radius: 16px; box-shadow: 0 4px 14px rgba(0,0,0,0.03); transition: all 0.22s ease; border: 1px solid #E3E5E7; }
+    .bili-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 174, 236, 0.09); border-color: #00AEEC; }
+    .tag-pill { background: #F1F2F3; color: #18191C; border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 500; transition: all 0.15s; }
+    .tag-pill:hover { background: #E3F6FD; color: #00AEEC; }
+  </style>
+</head>
+<body class="pb-20">
+
+  <div class="max-w-6xl mx-auto px-4 pt-6">
+    
+    <!-- HEADER BILIBILI SPACE -->
+    <div class="bili-card overflow-hidden mb-6">
+      <div class="h-44 sm:h-52 bg-gradient-to-r from-[#00AEEC]/20 via-[#FB7299]/15 to-amber-100 relative flex items-center justify-center">
+        <div class="text-center px-4">
+          <p class="text-xs uppercase tracking-widest text-biliGray font-semibold">Personal Creator & SEO Space</p>
+        </div>
+        <span class="absolute bottom-3 right-4 bg-white/85 backdrop-blur px-3 py-1 rounded-full text-xs text-biliGray font-medium shadow-sm">
+          📍 Bắc Từ Liêm, Hà Nội
+        </span>
+      </div>
+      
+      <!-- Thông tin Profile -->
+      <div class="px-6 pb-6 relative flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
+        <div class="flex flex-col sm:flex-row items-start sm:items-end gap-4 -mt-12">
+          <!-- Tự động dò mọi định dạng tên ảnh avatar hoặc cho phép bấm vào để chọn ảnh -->
+          <div class="relative group cursor-pointer" onclick="document.getElementById('avatarPicker').click()" title="Bấm để đổi ảnh đại diện">
+            <img id="profileAvatar" src="avatar.jpg" alt="Đinh Duy Tuân" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white bg-white shadow-md object-cover">
+            <span class="absolute bottom-1 right-1 bg-white/90 text-[10px] px-1.5 py-0.5 rounded-full shadow text-biliGray group-hover:text-biliBlue">📷</span>
+            <input type="file" id="avatarPicker" accept="image/*" class="hidden" onchange="previewLocalAvatar(event)">
+          </div>
+          <div class="pt-2 sm:pt-0">
+            <div class="flex flex-wrap items-center gap-2">
+              <h1 class="text-2xl sm:text-3xl font-bold text-biliDark">Đinh Duy Tuân</h1>
+              <span class="bg-biliPink text-white text-xs px-2.5 py-0.5 rounded-full font-semibold">Content Marketing</span>
+              <span class="bg-sky-100 text-biliBlue text-xs px-2.5 py-0.5 rounded-full font-semibold">SEO & Creator</span>
+            </div>
+            <p class="text-sm text-biliGray mt-1.5 max-w-2xl">
+              Chuyên viên Content SEO & Sáng tạo nội dung đa nền tảng (Website, TikTok, YouTube, Shopee). Tốt nghiệp loại Giỏi Thương mại điện tử tại FPT Polytechnic.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Nút liên hệ & Xem CV (Đã chuyển thành Modal không bao giờ lỗi) -->
+        <div class="flex flex-wrap gap-2.5 w-full md:w-auto">
+          <button onclick="openCvModal()" class="bg-biliPink hover:opacity-90 text-white text-sm font-medium px-4 py-2.5 rounded-xl transition shadow-sm flex items-center gap-1.5">
+            📄 Xem CV Gốc (PDF)
+          </button>
+          <button onclick="openContactModal()" class="bg-biliBlue hover:opacity-90 text-white text-sm font-medium px-4 py-2.5 rounded-xl transition shadow-sm flex items-center gap-1.5">
+            ✉️ Liên hệ Email
+          </button>
+          <a href="https://zalo.me/0356667874" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-biliDark text-sm font-medium px-4 py-2.5 rounded-xl transition flex items-center gap-1.5">
+            📞 035 666 7874
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD SỐ LIỆU NỔI BẬT -->
+    <div class="mb-6">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-bold text-lg flex items-center gap-2">
+          <span class="w-2 h-5 bg-biliPink rounded-full"></span>
+          Bảng Số Liệu Thực Chiến (Bấm vào thẻ để xem ảnh xác minh)
+        </h2>
+        <span class="text-xs text-biliBlue font-medium hidden sm:inline">🔍 Dữ liệu từ Google Search Console & TikTok</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Metric 1: Website chính haidangthietbidien.vn -->
+        <div onclick="openCompareProof('so lieu 3.jpg', 'Trước khi tối ưu: 1,85 Tr hiển thị | 112N lượt nhấp', 'so lieu 1.jpg', 'Sau 4 tháng tối ưu: 2,4 Tr hiển thị | 138N lượt nhấp (+29%)', 'Xác minh tăng trưởng SEO Website thietbipanasonic.vn')" class="bili-card p-4 cursor-pointer">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-medium text-biliGray">SEO haidangthietbidien.vn</span>
+            <span class="text-[11px] bg-sky-50 text-biliBlue px-2 py-0.5 rounded-md font-semibold">🔍 So sánh Trước/Sau</span>
+          </div>
+          <p class="text-2xl font-bold text-biliBlue mt-2">2.4 Triệu+</p>
+          <p class="text-xs text-biliDark font-medium mt-0.5">Lượt hiển thị & 138N lượt nhấp</p>
+          <p class="text-[11px] text-emerald-600 font-medium mt-1">▲ Tăng trưởng 29% sau 4 tháng</p>
+        </div>
+
+        <!-- Metric 2: Website mới haidangtbd.vn -->
+        <div onclick="openSingleProof('so lieu 2.jpg', 'Website mới haidangtbd.vn: Đạt 21,5N lượt hiển thị và 627 lượt nhấp sau 3 tháng triển khai SEO')" class="bili-card p-4 cursor-pointer">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-medium text-biliGray">SEO Web mới haidangtbd.vn</span>
+            <span class="text-[11px] bg-sky-50 text-biliBlue px-2 py-0.5 rounded-md font-semibold">🔍 Xem ảnh GSC</span>
+          </div>
+          <p class="text-2xl font-bold text-biliPink mt-2">21.500+</p>
+          <p class="text-xs text-biliDark font-medium mt-0.5">Lượt hiển thị sau 3 tháng</p>
+          <p class="text-[11px] text-biliGray mt-1">Từ website mới chỉ vài trăm traffic</p>
+        </div>
+
+        <!-- Metric 3: TikTok Chuyện Của Chữ -->
+        <a href="https://www.tiktok.com/@tuandd1594_" target="_blank" class="bili-card p-4 block">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-medium text-biliGray">TikTok Chuyện Của Chữ</span>
+            <span class="text-[11px] bg-pink-50 text-biliPink px-2 py-0.5 rounded-md font-semibold">↗ Mở kênh</span>
+          </div>
+          <p class="text-2xl font-bold text-biliDark mt-2">81.1K Follow</p>
+          <p class="text-xs text-biliDark font-medium mt-0.5">2.7M Thích • 20M+ Lượt xem</p>
+          <p class="text-[11px] text-emerald-600 font-medium mt-1">💰 27 triệu doanh số / 1 tháng</p>
+        </a>
+
+        <!-- Metric 4: TikTok Mù Công Nghệ -->
+        <a href="https://www.tiktok.com/@mucongnghe6868" target="_blank" class="bili-card p-4 block">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-medium text-biliGray">TikTok Mù Công Nghệ</span>
+            <span class="text-[11px] bg-pink-50 text-biliPink px-2 py-0.5 rounded-md font-semibold">↗ Mở kênh</span>
+          </div>
+          <p class="text-2xl font-bold text-biliDark mt-2">15.5K Follow</p>
+          <p class="text-xs text-biliDark font-medium mt-0.5">633K+ Lượt thích</p>
+          <p class="text-[11px] text-biliBlue font-medium mt-1">🤝 Đối tác content Meko (Belkin, ESR)</p>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- BỐ CỤC CHÍNH 2 CỘT (3:7) -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- CỘT TRÁI -->
+      <div class="space-y-6">
+        
+        <div class="bili-card p-5">
+          <h3 class="font-bold text-base mb-3 flex items-center gap-2">
+            <span class="w-1.5 h-4 bg-biliBlue rounded-full"></span> Thông tin cá nhân
+          </h3>
+          <ul class="space-y-2.5 text-sm text-biliGray">
+            <li class="flex justify-between"><span class="font-medium text-biliDark">Ngày sinh:</span> <span>15/09/2004</span></li>
+            <li class="flex justify-between"><span class="font-medium text-biliDark">Điện thoại:</span> <span>035 666 7874</span></li>
+            <li class="flex justify-between"><span class="font-medium text-biliDark">Email:</span> <button onclick="openContactModal()" class="text-biliBlue hover:underline">tuandinhduy4@gmail.com</button></li>
+            <li class="flex justify-between"><span class="font-medium text-biliDark">Địa chỉ:</span> <span>Tây Tựu, Bắc Từ Liêm, HN</span></li>
+            <li class="flex justify-between"><span class="font-medium text-biliDark">Bio Link:</span> <a href="https://beacons.ai/tuandinhduy4" target="_blank" class="text-biliPink hover:underline">beacons.ai/tuandinhduy4</a></li>
+          </ul>
+        </div>
+
+        <div class="bili-card p-5">
+          <h3 class="font-bold text-base mb-3 flex items-center gap-2">
+            <span class="w-1.5 h-4 bg-biliPink rounded-full"></span> Kỹ năng chuyên môn
+          </h3>
+          <div class="space-y-3">
+            <div>
+              <p class="text-xs font-semibold text-biliGray mb-1.5">SEO & PHÂN TÍCH THỊ TRƯỜNG</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="tag-pill">SEO Onpage / Offpage</span>
+                <span class="tag-pill">Entity & Local SEO</span>
+                <span class="tag-pill">WordPress</span>
+                <span class="tag-pill">Figma</span>
+                <span class="tag-pill">Semrush</span>
+                <span class="tag-pill">SimilarWeb</span>
+                <span class="tag-pill">Buzzsumo</span>
+                <span class="tag-pill">Fanpage Karma</span>
+              </div>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-biliGray mb-1.5">CONTENT, DESIGN & AI</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="tag-pill">Kịch bản TikTok/YouTube</span>
+                <span class="tag-pill">CapCut</span>
+                <span class="tag-pill">Photoshop</span>
+                <span class="tag-pill">Illustrator</span>
+                <span class="tag-pill">Canva</span>
+                <span class="tag-pill">Google AI Studio</span>
+                <span class="tag-pill">ChatGPT / Claude AI</span>
+              </div>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-biliGray mb-1.5">ĐA KÊNH & QUẢNG CÁO</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="tag-pill">Tối ưu Shopee / TikTok / Fanpage</span>
+                <span class="tag-pill">Facebook Ads</span>
+                <span class="tag-pill">Shopee Ads</span>
+                <span class="tag-pill">Google Ads</span>
+                <span class="tag-pill">Setup Cơ Bản</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bili-card p-5">
+          <h3 class="font-bold text-base mb-3 flex items-center gap-2">
+            <span class="w-1.5 h-4 bg-biliBlue rounded-full"></span> Học vấn & Hoạt động
+          </h3>
+          <div class="border-l-2 border-biliBlue pl-3 mb-4">
+            <p class="font-bold text-sm text-biliDark">Cao Đẳng FPT Polytechnic</p>
+            <p class="text-xs text-biliGray">2023 - 2025 | Chuyên ngành Thương mại điện tử</p>
+            <span class="inline-block mt-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-xs px-2.5 py-0.5 rounded-md font-semibold">
+              🎓 Tốt nghiệp loại Giỏi • GPA: 3.39/5
+            </span>
+          </div>
+          <p class="text-xs font-semibold text-biliGray mb-2">HOẠT ĐỘNG CỘNG ĐỒNG</p>
+          <ul class="text-xs text-biliGray space-y-1.5 list-disc list-inside">
+            <li>Tham gia hiến máu tình nguyện</li>
+            <li>Hỗ trợ người dân vùng lũ sau thiệt hại bão Yagi</li>
+            <li>Tham gia hoạt động từ thiện gây quỹ tại trường</li>
+          </ul>
+        </div>
+
+        <div class="bili-card p-5">
+          <h3 class="font-bold text-base mb-3 flex items-center gap-2">
+            <span class="w-1.5 h-4 bg-biliPink rounded-full"></span> Định hướng phát triển
+          </h3>
+          <div class="space-y-3 text-xs text-biliGray leading-relaxed">
+            <div>
+              <span class="font-semibold text-biliDark">Ngắn hạn (6 - 12 tháng):</span> Học hỏi sâu từ các dự án thực tế của công ty, vượt KPI thử việc và xử lý chính xác, đúng hạn mọi nhiệm vụ được giao.
+            </div>
+            <div>
+              <span class="font-semibold text-biliDark">Dài hạn (&gt; 2 năm):</span> Gắn bó lâu dài, mở rộng kỹ năng quản lý và phân tích dữ liệu chuyên sâu để tiến lên các vị trí quản lý.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CỘT PHẢI -->
+      <div class="lg:col-span-2 space-y-6">
+        
+        <!-- KHỐI 1: KINH NGHIỆM DOANH NGHIỆP & SEO -->
+        <div class="bili-card p-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100">
+            <div>
+              <span class="text-xs font-bold text-biliBlue uppercase tracking-wider">6/2025 - 10/2025</span>
+              <h2 class="text-lg font-bold text-biliDark mt-0.5">Content SEO Marketing — Công ty TNHH Thiết Bị Điện Hải Đăng</h2>
+            </div>
+            <span class="bg-emerald-50 text-emerald-700 text-xs px-3 py-1 rounded-full font-semibold">
+              ⭐ Lên chính thức sau 3 tuần thử việc
+            </span>
+          </div>
+
+          <p class="text-sm text-biliGray mt-3 leading-relaxed">
+            Phụ trách thiết kế lại giao diện website, banner, poster; lên kế hoạch nội dung, viết bài chuẩn SEO, tối ưu SEO Onpage & Offpage (Entity/Social Branding, SEO Local, Link Building) và duy trì Fanpage doanh nghiệp.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/60 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-biliDark">🌐 Website chính: haidangthietbidien.vn</span>
+                  <span class="text-xs text-emerald-600 font-bold">+29% Traffic</span>
+                </div>
+                <p class="text-xs text-biliGray mt-2">
+                  Tối ưu lại giao diện các trang đích và cập nhật sản phẩm theo xu hướng tìm kiếm Google:
+                </p>
+                <ul class="text-xs text-biliDark space-y-1 mt-2">
+                  <li>• <strong>Trước khi làm:</strong> 1,85 Tr hiển thị | 112N lượt nhấp</li>
+                  <li>• <strong>Sau khi làm:</strong> 2,4 Tr hiển thị | 138N lượt nhấp</li>
+                  <li>• <strong>Vị trí TB:</strong> Cải thiện từ 5,4 lên 5,2 (CTR 5,8%)</li>
+                </ul>
+              </div>
+              <button onclick="openCompareProof('so lieu 3.jpg', 'TRƯỚC KHI LÀM (haidangthietbidien.vn): 112N lượt nhấp | 1,85 Tr hiển thị', 'so lieu 1.jpg', 'SAU KHI LÀM (thietbipanasonic.vn): 138N lượt nhấp | 2,4 Tr hiển thị', 'So sánh hiệu suất Google Search Console: thietbipanasonic.vn')" class="mt-4 w-full bg-white hover:bg-sky-50 text-biliBlue border border-biliBlue/40 text-xs font-semibold py-2 rounded-lg transition">
+                📊 Bấm xem 2 ảnh Trước & Sau khi làm
+              </button>
+            </div>
+
+            <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/60 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-biliDark">🚀 Website mới: haidangtbd.vn</span>
+                  <span class="text-xs text-biliPink font-bold">21,5N Hiển thị</span>
+                </div>
+                <p class="text-xs text-biliGray mt-2">
+                  Bắt đầu thiết kế giao diện và triển khai cấu trúc SEO từ con số 0 (tháng 7/2025):
+                </p>
+                <ul class="text-xs text-biliDark space-y-1 mt-2">
+                  <li>• Từ vài trăm traffic bật lên <strong>21.500+ lượt hiển thị</strong></li>
+                  <li>• Đạt <strong>627 lượt nhấp</strong> tự nhiên trong 3 tháng</li>
+                  <li>• CTR trung bình đạt <strong>2,9%</strong>, vị trí TB <strong>16,9</strong></li>
+                </ul>
+              </div>
+              <button onclick="openSingleProof('so lieu 2.jpg', 'Google Search Console Website mới haidangtbd.vn: 21,5N lượt hiển thị sau 3 tháng')" class="mt-4 w-full bg-white hover:bg-pink-50 text-biliPink border border-biliPink/40 text-xs font-semibold py-2 rounded-lg transition">
+                📈 Bấm xem ảnh xác minh haidangtbd.vn
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- KHỐI 2: HỆ SINH THÁI KÊNH CÁ NHÂN -->
+        <div class="bili-card p-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100">
+            <div>
+              <span class="text-xs font-bold text-biliPink uppercase tracking-wider">4/2026 - Hiện tại</span>
+              <h2 class="text-lg font-bold text-biliDark mt-0.5">Dự Án Sáng Tạo Nội Dung Đa Kênh & Affiliate</h2>
+            </div>
+            <span class="bg-pink-50 text-biliPink text-xs px-3 py-1 rounded-full font-semibold">
+              🎬 Full-stack Creator (Kịch bản • Edit • AI Visual)
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div class="border border-slate-200 rounded-xl p-4 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="font-bold text-base text-biliDark">📚 TikTok: Chuyện Của Chữ</h3>
+                  <span class="text-xs bg-slate-100 px-2 py-0.5 rounded text-biliGray">@tuandd1594_</span>
+                </div>
+                <p class="text-xs text-biliGray mt-2 leading-relaxed">
+                  Lên kế hoạch, viết kịch bản cảm nhận văn học, dựng video và ứng dụng AI tạo hình ảnh minh họa theo bối cảnh tác phẩm.
+                </p>
+                <div class="grid grid-cols-3 gap-2 my-3 text-center bg-slate-50 p-2.5 rounded-lg">
+                  <div>
+                    <p class="text-sm font-bold text-biliPink">81.1K</p>
+                    <p class="text-[10px] text-biliGray">Followers</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-biliDark">2.7M</p>
+                    <p class="text-[10px] text-biliGray">Lượt thích</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-emerald-600">27 Triệu</p>
+                    <p class="text-[10px] text-biliGray">GMV / tháng</p>
+                  </div>
+                </div>
+                <ul class="text-xs text-biliGray space-y-1">
+                  <li>• Hơn 20 triệu lượt xem toàn kênh, thu về &gt;3 triệu hoa hồng/tháng.</li>
+                  <li>• Thu hút các thương hiệu sách lớn liên hệ booking quảng cáo.</li>
+                </ul>
+              </div>
+              <a href="https://www.tiktok.com/@tuandd1594_" target="_blank" class="mt-4 block text-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium py-2 rounded-lg transition">
+                Xem kênh TikTok @tuandd1594_ ↗
+              </a>
+            </div>
+
+            <div class="border border-slate-200 rounded-xl p-4 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="font-bold text-base text-biliDark">📱 TikTok: Mù Công Nghệ</h3>
+                  <span class="text-xs bg-slate-100 px-2 py-0.5 rounded text-biliGray">@mucongnghe6868</span>
+                </div>
+                <p class="text-xs text-biliGray mt-2 leading-relaxed">
+                  Sản xuất toàn diện nội dung đánh giá phụ kiện, điện thoại, máy ảnh theo phong cách gần gũi, dễ hiểu và tối ưu chuyển đổi.
+                </p>
+                <div class="grid grid-cols-3 gap-2 my-3 text-center bg-slate-50 p-2.5 rounded-lg">
+                  <div>
+                    <p class="text-sm font-bold text-biliBlue">15.5K</p>
+                    <p class="text-[10px] text-biliGray">Followers</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-biliDark">633K</p>
+                    <p class="text-[10px] text-biliGray">Lượt thích</p>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-biliPink">Partner</p>
+                    <p class="text-[10px] text-biliGray">Meko Group</p>
+                  </div>
+                </div>
+                <ul class="text-xs text-biliGray space-y-1">
+                  <li>• Đối tác content của nhà phân phối Meko (đại diện chính thức Belkin & ESR tại Việt Nam).</li>
+                  <li>• Nhận booking quảng cáo từ nhiều nhãn hàng phụ kiện công nghệ.</li>
+                </ul>
+              </div>
+              <a href="https://www.tiktok.com/@mucongnghe6868" target="_blank" class="mt-4 block text-center bg-biliBlue hover:opacity-90 text-white text-xs font-medium py-2 rounded-lg transition">
+                Xem kênh TikTok @mucongnghe6868 ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-4 border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="bg-red-600 text-white text-[10px] px-2 py-0.5 rounded font-bold">YOUTUBE</span>
+                <h3 class="font-bold text-sm text-biliDark">Kênh YouTube: Chuyện Của Chữ (@chuyencuachu)</h3>
+              </div>
+              <p class="text-xs text-biliGray mt-1">
+                Sản xuất video dài phân tích chiều sâu tác phẩm văn học (Số Đỏ, Chí Phèo, Mắt Biếc...) — Đạt <strong>248 người đăng ký</strong> và <strong>hơn 14.500 lượt xem</strong> với 16 video.
+              </p>
+            </div>
+            <a href="https://www.youtube.com/@chuyencuachu" target="_blank" class="shrink-0 bg-white border border-slate-300 hover:border-red-500 text-biliDark text-xs font-semibold px-3.5 py-2 rounded-lg transition">
+              Mở YouTube ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- KHỐI 3: DỰ ÁN TỐT NGHIỆP TIỆM HOA XUÂN -->
+        <div class="bili-card p-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+            <div>
+              <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">1/2025 - 5/2025</span>
+              <h2 class="text-lg font-bold text-biliDark mt-0.5">Trưởng Nhóm Dự Án Đa Kênh — Thương Hiệu Tiệm Hoa Xuân</h2>
+            </div>
+            <span class="bg-amber-50 text-amber-700 text-xs px-3 py-1 rounded-full font-semibold">
+              🏆 Điểm tổng kết: 8.5 / 10
+            </span>
+          </div>
+          <p class="text-xs text-biliGray mt-3 leading-relaxed">
+            Dẫn dắt đội ngũ <strong>7 thành viên</strong> xây dựng thương hiệu và phát triển hệ thống bán hàng đa kênh (Website, Shopee, Facebook): hoạch định chiến lược, triển khai SEO Onpage/Offpage, kiểm soát vận hành đơn hàng Shopee và đo lường chỉ số từng giai đoạn.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+              <p class="text-xs text-biliGray">Doanh thu thực tế</p>
+              <p class="text-base font-bold text-biliDark mt-0.5">20.000.000 VNĐ</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+              <p class="text-xs text-biliGray">Độ phủ chiến dịch</p>
+              <p class="text-base font-bold text-biliBlue mt-0.5">200.000+ Tiếp cận</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 col-span-2 sm:col-span-1">
+              <p class="text-xs text-biliGray">Quy mô vận hành</p>
+              <p class="text-base font-bold text-biliPink mt-0.5">Team 7 thành viên</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 1: XEM ẢNH XÁC MINH SỐ LIỆU -->
+  <div id="proofModal" onclick="closeProof()" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
+    <div onclick="event.stopPropagation()" class="bg-white rounded-2xl max-w-5xl w-full overflow-hidden shadow-2xl">
+      <div class="px-5 py-3.5 border-b flex justify-between items-center bg-slate-50">
+        <h3 id="proofTitle" class="font-bold text-sm sm:text-base text-biliDark">Ảnh xác minh số liệu</h3>
+        <button onclick="closeProof()" class="text-biliGray hover:text-biliDark text-lg font-bold px-2">✕</button>
+      </div>
+      
+      <div id="singleProofContainer" class="p-4 bg-slate-100 flex flex-col items-center">
+        <img id="singleProofImage" src="" alt="Bằng chứng số liệu" class="max-h-[72vh] w-auto rounded-lg shadow object-contain bg-white">
+      </div>
+
+      <div id="compareProofContainer" class="p-4 bg-slate-100 hidden grid-cols-1 md:grid-cols-2 gap-4 max-h-[80vh] overflow-y-auto">
+        <div class="bg-white p-3 rounded-xl shadow-sm">
+          <p id="beforeCaption" class="text-xs font-bold text-biliGray mb-2 text-center"></p>
+          <img id="beforeImage" src="" alt="Trước khi làm" class="w-full h-auto rounded-lg border">
+        </div>
+        <div class="bg-white p-3 rounded-xl shadow-sm border-2 border-biliBlue">
+          <p id="afterCaption" class="text-xs font-bold text-biliBlue mb-2 text-center"></p>
+          <img id="afterImage" src="" alt="Sau khi làm" class="w-full h-auto rounded-lg border">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: XEM TRỰC TIẾP CV GỐC (TỰ ĐỘNG NHẬN CẢ cv.pdf VÀ cv.pdf.pdf) -->
+  <div id="cvModal" onclick="closeCvModal()" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
+    <div onclick="event.stopPropagation()" class="bg-white rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl flex flex-col h-[85vh]">
+      <div class="px-5 py-3.5 border-b flex flex-wrap justify-between items-center gap-2 bg-slate-50">
+        <h3 class="font-bold text-sm sm:text-base text-biliDark">📄 Hồ sơ CV — Đinh Duy Tuân</h3>
+        <div class="flex items-center gap-2">
+          <a href="cv.pdf.pdf" download="CV-Dinh-Duy-Tuan.pdf" class="bg-biliPink text-white text-xs font-semibold px-3 py-1.5 rounded-lg hover:opacity-90">
+            ⬇ Tải file CV (nếu tên cv.pdf.pdf)
+          </a>
+          <a href="cv.pdf" download="CV-Dinh-Duy-Tuan.pdf" class="bg-biliBlue text-white text-xs font-semibold px-3 py-1.5 rounded-lg hover:opacity-90">
+            ⬇ Tải file CV (cv.pdf)
+          </a>
+          <button onclick="closeCvModal()" class="text-biliGray hover:text-biliDark text-lg font-bold px-2">✕</button>
+        </div>
+      </div>
+      <div class="flex-1 bg-slate-100 p-2 overflow-hidden">
+        <object data="cv.pdf.pdf" type="application/pdf" class="w-full h-full rounded-lg">
+          <object data="cv.pdf" type="application/pdf" class="w-full h-full rounded-lg">
+            <div class="p-8 text-center text-sm text-biliGray">
+              <p class="font-bold text-base text-biliDark mb-2">Trình duyệt xem trước không hỗ trợ nhúng PDF trực tiếp</p>
+              <p>Bạn hãy mở file <strong>index.html</strong> bằng trình duyệt Chrome/Edge ngoài màn hình, hoặc bấm một trong hai nút <strong>Tải file CV</strong> màu hồng/xanh ở góc trên bên phải cửa sổ này.</p>
+            </div>
+          </object>
+        </object>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: HỘP THOẠI LIÊN HỆ EMAIL & ZALO (HOẠT ĐỘNG TRÊN MỌI MÁY TÍNH) -->
+  <div id="contactModal" onclick="closeContactModal()" class="fixed inset-0 bg-black/75 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
+    <div onclick="event.stopPropagation()" class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl p-6">
+      <div class="flex justify-between items-center pb-3 border-b">
+        <h3 class="font-bold text-base text-biliDark">✉️ Thông tin liên hệ trực tiếp</h3>
+        <button onclick="closeContactModal()" class="text-biliGray hover:text-biliDark text-lg font-bold">✕</button>
+      </div>
+      <div class="space-y-4 mt-4 text-sm">
+        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+          <p class="text-xs text-biliGray">Địa chỉ Email cá nhân:</p>
+          <div class="flex items-center justify-between mt-1">
+            <span id="myEmailText" class="font-bold text-biliDark">tuandinhduy4@gmail.com</span>
+            <button onclick="copyEmail()" id="copyBtn" class="bg-biliBlue text-white text-xs font-semibold px-3 py-1.5 rounded-lg hover:opacity-90 transition">
+              📋 Copy Email
+            </button>
+          </div>
+        </div>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tuandinhduy4@gmail.com" target="_blank" class="block w-full text-center bg-biliPink hover:opacity-90 text-white font-semibold py-2.5 rounded-xl transition">
+          🚀 Mở Gmail trên Web để gửi thư ngay
+        </a>
+
+        <a href="https://zalo.me/0356667874" target="_blank" class="block w-full text-center bg-slate-100 hover:bg-slate-200 text-biliDark font-semibold py-2.5 rounded-xl transition">
+          💬 Nhắn tin Zalo: 035 666 7874
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. Tự động tìm đúng tên ảnh đại diện trong thư mục (tránh lỗi ẩn đuôi file trên Windows)
+    const avatarCandidates = [
+      'avatar.jpg',
+      'avatar.png',
+      'avatar.jpg.jpg',
+      'avatar.png.png',
+      'avatar.jpg.png',
+      'avatar.jpeg',
+      'avatar.webp'
+    ];
+    let avatarIndex = 0;
+    const avatarEl = document.getElementById('profileAvatar');
+
+    // Nếu trước đó bạn đã chọn ảnh trực tiếp trên trình duyệt thì ưu tiên hiển thị luôn
+    const savedAvatar = localStorage.getItem('tuan_custom_avatar');
+    if (savedAvatar) {
+      avatarEl.src = savedAvatar;
+    } else {
+      avatarEl.onerror = function() {
+        avatarIndex++;
+        if (avatarIndex < avatarCandidates.length) {
+          avatarEl.src = avatarCandidates[avatarIndex];
+        } else {
+          avatarEl.onerror = null;
+          avatarEl.src = 'https://api.dicebear.com/7.x/notionists/svg?seed=TuanDinh&backgroundColor=e0f2fe';
+        }
+      };
+    }
+
+    // Cho phép bấm thẳng vào vòng tròn Avatar trên web để chọn ảnh từ máy tính
+    function previewLocalAvatar(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        avatarEl.src = e.target.result;
+        localStorage.setItem('tuan_custom_avatar', e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // 2. Logic mở Modal xem ảnh xác minh số liệu
+    function openSingleProof(imgSrc, titleText) {
+      document.getElementById('proofTitle').innerText = titleText;
+      document.getElementById('singleProofImage').src = imgSrc;
+      document.getElementById('singleProofContainer').classList.remove('hidden');
+      document.getElementById('singleProofContainer').classList.add('flex');
+      document.getElementById('compareProofContainer').classList.add('hidden');
+      document.getElementById('compareProofContainer').classList.remove('grid');
+      
+      const modal = document.getElementById('proofModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function openCompareProof(beforeSrc, beforeText, afterSrc, afterText, titleText) {
+      document.getElementById('proofTitle').innerText = titleText;
+      document.getElementById('beforeImage').src = beforeSrc;
+      document.getElementById('beforeCaption').innerText = beforeText;
+      document.getElementById('afterImage').src = afterSrc;
+      document.getElementById('afterCaption').innerText = afterText;
+
+      document.getElementById('singleProofContainer').classList.add('hidden');
+      document.getElementById('singleProofContainer').classList.remove('flex');
+      document.getElementById('compareProofContainer').classList.remove('hidden');
+      document.getElementById('compareProofContainer').classList.add('grid');
+
+      const modal = document.getElementById('proofModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeProof() {
+      const modal = document.getElementById('proofModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // 3. Logic mở Modal CV và Liên hệ Email
+    function openCvModal() {
+      const modal = document.getElementById('cvModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeCvModal() {
+      const modal = document.getElementById('cvModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openContactModal() {
+      const modal = document.getElementById('contactModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeContactModal() {
+      const modal = document.getElementById('contactModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function copyEmail() {
+      navigator.clipboard.writeText('tuandinhduy4@gmail.com');
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✅ Đã copy!';
+      setTimeout(() => { btn.innerText = '📋 Copy Email'; }, 2000);
+    }
+  </script>
+</body>
+</html>
